@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #EEE8D5;
+    color: #859900;
+    font-family: monospace;
+    font-size: 14px;
+}
+
+body,html {
+    height: 100%;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 22px;
+}
+p {
+    margin-bottom: 15px;
+}
+
+.code-fragment {
+    background-color: #D4DDAF;
+    padding: 10px 25px;
+    margin: 15px 0;
+    display: inline-block;
+}
+
+#calc {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    color: #000;
+}
+
+.display {
+    height: 25%;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background-color: #FDF6E3;
+}
+
+.container-margins {
+    padding: 45px 25px;
+}
+
+.container-display {
+    height: 100%;
+    margin: 0 60px;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    flex-direction: column;
+}
+
+.display__input {
+    width: 100%;
+    background-color: #E6ECF2;
+    display: flex;
+    font-size: 75px;
+    align-items: end;
+    justify-content: end;
+    text-align: right;
+    border: none;
+    border-bottom: 3px solid #D3E1F2;
+    outline: none;
+}
+.container__notice {
+    text-align: right;
+    font-size: 40px;
+    color: #d3e1f2;
+}
+
+.display__menu {
+    margin: auto;
+    list-style: none;
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    z-index: 2;
+}
+.display__menu li {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    letter-spacing: 1px;
+}
+.display__menu a {text-decoration: none;}
+
+.panel {
+    height: 75%;
+}
+
+.row {
+    width: 100%;
+    height: 20%;
+    font-size: 0;
+    text-align: left;
+}
+
+.row-3,
+.row-4,
+.row-5 {
+    width: 75%;
+}
+
+.btn {
+    width: 33.3333%;
+    height: 100%;
+    display: inline-block;
+    font-size: 20px;
+    text-align: center;
+    vertical-align: top;
+    font-size: 60px;
+    cursor: pointer;
+    outline: 1px solid #eee;
+}
+
+.btn:hover {
+    background-color: #F2F2F2;
+}
+
+.btn:active {
+    background-color: #D3E1F2;
+}
+
+.row-1 .btn,
+.row-2 .btn
+{width: 25%;}
+
+.btn-zer {width: 66.666%;}
+
+.btn span {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-execute {
+    width: 25%;
+    height: 60%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

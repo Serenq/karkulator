@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta charset="UTF-8">
+    <title>Полезные скрипты</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="style/main.css">
+</head>
+
+<body>
+    <div id="calc">
+        <div class="display">
+            <ul class="display__menu">
+                <li><a href="regex-explain.html">О программе</a></li>
+            </ul>
+            <div class="container-display">
+                <input class="display__input" type="text" placeholder="Каркулятор">
+                <p class="container__notice">Подсказка</p>
+            </div>
+        </div>
+        <div class="panel">
+            <div class="row row-1">
+                <div class="btn btn-divd btn-math" data-btn="/"><span>/</span></div>
+                <div class="btn btn-mult btn-math" data-btn="*"><span>*</span></div>
+                <div class="btn btn-min btn-math" data-btn="-"><span>-</span></div>
+                <div class="btn btn-plus btn-math" data-btn="+"><span>+</span></div>
+            </div>
+            <div class="row row-2">
+                <div class="btn btn-svn" data-btn="7"><span>7</span></div>
+                <div class="btn btn-egt" data-btn="8"><span>8</span></div>
+                <div class="btn btn-nin" data-btn="9"><span>9</span></div>
+                <div class="btn btn-clr"><span>Clr</span></div>
+            </div>
+            <div class="row row-3">
+                <div class="btn btn-for" data-btn="4"><span>4</span></div>
+                <div class="btn btn-fiv" data-btn="5"><span>5</span></div>
+                <div class="btn btn-six" data-btn="6"><span>6</span></div>
+            </div>
+            <div class="row row-4">
+                <div class="btn btn-one" data-btn="1"><span>1</span></div>
+                <div class="btn btn-two" data-btn="2"><span>2</span></div>
+                <div class="btn btn-thr" data-btn="3"><span>3</span></div>
+            </div>
+            <div class="row row-5">
+                <div class="btn btn-zer" data-btn="0"><span>0</span></div>
+                <div class="btn btn-com" data-btn="."><span>.</span></div>
+            </div>
+            <div class="btn btn-execute"><span>=</span></div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <!-- scripty -->
+    <script src="js/main.js"></script>
+</body>
+</html>
