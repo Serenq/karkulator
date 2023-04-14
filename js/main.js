@@ -15,8 +15,10 @@
     const input = $('.display__input');
     const noticeVal = $('.container__notice');
     const placeholder = ['Каркулятор','2 + 2 * 2 = 8','Красота','Готов!','Приятный результат'];
-    const reg_allowedType = /\B[^\-\d\.\s]+|[^\d\+\-\*\/\.]|(?<=\d+[\+\*\/\.])[\+\*\/\.]+|(?<=\d+\-)\-+|\B[\+\-\*\/][\+\-\*\/]+|\B0+|(?<=\.\d+)\.|(?<=\.)\.+/g;
-    const reg_formattedVal = /(?:[\d\.])(?:[\+\-\*\/]?[\d\.])+|\d+/gmi;
+    // Убирает лишние символы
+    const reg_allowedType = /\B[^\-\d\.\s]+|[^\d\+\-\*\/\.]|(?<=\d+[\+\-\*\/\.])[\+\*\/\.]+|(?<=\d+\-)\-+|\B[\+\-\*\/][\+\-\*\/]+|\B0+|(?<=\.\d+)\.|(?<=\.)\.+|(?<=\.)\-/;
+    // Убирает лишние символы для вывода значения
+    const reg_formattedVal = /(?:[\d\.])(?:[\+\-\*\/]?[\d\.])+|\d+/;
 
     let calc = {
         value: '',
@@ -37,34 +39,59 @@
                 calc.result();
                 noticeVal.text('...');
             }
-
+            
             // Ввод данных
-            input.val(calc.value);
-            calc.notice();// Предварительный просмотр результата
+            input.val( calc.value ); // Ввод данных
+            calc.reg_allowInput(); // Форматирование ввода
+            calc.notice(); // Предварительный просмотр результата
         },
         typeToInput: function(e){
-            calc.value = input.val();
-            calc.notice();// Предварительный просмотр результата
+            calc.value = input.val(); // Ввод данных
+            calc.reg_allowInput(); // Форматирование ввода
+            calc.notice(); // Предварительный просмотр результата
+
             if(e.which == 32){ calc.clear() } // SPACE
 
             // Enter - Результат
             if(e.which == 13){ calc.result() } // ENTER
         },
+        reg_allowInput: function(){
+            calc.value = input.val().replace(reg_allowedType, '');
+            input.val(calc.value);
+        },
+        reg_formatStr: function(){
+            let reg = new RegExp(reg_allowedType, 'g');
+            calc.value = input.val().replace(reg, '');
+            input.val(calc.value);
+        },
+        reg_isAllow: function(){
+            // Проверка шаблона вводимых данных
+            return reg_allowedType.test(calc.value);
+        },
+        reg_isFormatted: function(){
+            // Проверка шаблона у уже отформатированной строки
+            return reg_formattedVal.test(calc.value), console.log(reg_formattedVal.test(calc.value));;
+        },
         clear: function(){
             calc.value = '';
             calc.placehold();
-            input.val('');
+            input.val(calc.value);
             noticeVal.text('...');
         },
         result: function(){
-            input.val( eval(calc.value) );
-            calc.value = input.val();
+            let reg = new RegExp(/[\+\-\*\/\.]\.?$/,'gm'); // Убрать символы в конце
+            calc.reg_allowInput(); // Форматирование ввода
+            calc.reg_formatStr(); // Форматирование операторов от лишних символов
+            calc.value = calc.value.replace(reg,''); // Убрать символы в конце
+            calc.value = eval(calc.value);
+            input.val( calc.value );
         },
         notice: function(){
             // Предварительный просмотр результата. Если форматированный результат верен.
-            if(reg_formattedVal.test(calc.value)){
-                noticeVal.text( eval(calc.value) );
-            }
+            if( calc.reg_isFormatted() ){
+                noticeVal.text(eval(calc.value));
+                console.log(calc.value);
+            };
         },
         alredyDone: function(e){
             //Если посчитано, была нажата кнопка (=)
