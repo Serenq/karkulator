@@ -69,7 +69,6 @@
             return reg_allowedType.test(calc.value);
         },
         reg_isFormatted: function(){
-            console.log(reg_formattedVal.test(calc.value), calc.value);
             // Проверка шаблона у уже отформатированной строки
             return reg_formattedVal.test(calc.value);
         },
