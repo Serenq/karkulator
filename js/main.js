@@ -16,7 +16,7 @@
     const noticeVal = $('.container__notice');
     const placeholder = ['Каркулятор','2 + 2 * 2 = 8','Красота','Готов!','Приятный результат'];
     // Убирает лишние символы. Защита от ввода хуйни.
-    const reg_allowedType = /\B[^\-\d\.\s]+|[^\d\+\-\*\/\.]|(?<=\d+[\+\-\*\/\.])[\+\*\/\.]+|(?<=\d+\-)\-+|\B[\+\-\*\/][\+\-\*\/]+|\B0+|(?<=\.\d+)\.|(?<=\.)\.+|(?<=\.)\-/g;
+    const reg_allowedType = /\B[^\-\d\.\s]+|[^\d\+\-\*\/\.]|(?<=\d+[\+\-\*\/\.])[\+\*\/\.]+|(?<=\d+\-)\-+|\B[\+\-\*\/][\+\-\*\/]+|\B0+[\.1-9]|(?<=\.\d+)\.|(?<=\.)\.+|(?<=\.)\-/g;
     // Проверка уже введённого для вывода подсказки БЕЗ ОШИБОК!
     const reg_formattedVal = /^(?:[0-9\.]+)(?:(?:[\+\-\*\/])(?:[0-9\.]+))+$|^[0-9\.]+$/;
 
@@ -63,10 +63,6 @@
             calc.value = input.val().replace(reg_allowedType, '');
             input.val(calc.value);
         },
-        reg_isFormatted: function(){
-            // Проверка шаблона у уже отформатированной строки
-            return reg_formattedVal.test(calc.value);
-        },
         clear: function(){
             calc.value = '';
             calc.placehold();
@@ -83,7 +79,7 @@
         },
         notice: function(){
             // Предварительный просмотр результата. Если форматированный результат верен.
-            if( calc.reg_isFormatted() ){
+            if( reg_formattedVal.test(calc.value) ){
                 noticeVal.text(eval(calc.value));
             }
         },
