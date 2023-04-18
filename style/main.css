@@ -58,9 +58,30 @@ p {
     height: 100%;
     margin: 0 60px;
     display: flex;
-    align-items: end;
-    justify-content: end;
     flex-direction: column;
+}
+
+.skin-switch {
+    flex: 1 0 auto;
+    font-size: 0;
+}
+.skin-switch__btn {
+    width: 50px;
+    height: 100%;
+    border: none;
+    border-bottom-width: 7px;
+    border-bottom-style: solid;
+    display: inline-block;
+}
+
+.skin-switch__btn-light {
+    background: linear-gradient(#E4E4EB, #BEBFC4);
+    border-bottom-color: #F0F0F0;
+    
+}
+.skin-switch__btn-dark {
+    background: linear-gradient(#676870, #3B3B40);
+    border-bottom-color: #1F1F1F;
 }
 
 .display-result__input {
