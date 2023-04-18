@@ -246,7 +246,11 @@ p {
 }
 
 .skin-dark .display-result__input {
+    background-color: #D5D6DB;
     border-color: #77777A;
+}
+.skin-dark .display-result__input::placeholder {
+    color: #A3A4A8;
 }
 
 .skin-dark .display-result__notice,
@@ -282,7 +286,7 @@ p {
     background-color: #C9FFC1;
 }
 .skin-nephrite .display-result__input::placeholder {
-    color: #3EAA56;
+    color: #84DB76;
 }
 
 .skin-nephrite .display-result__notice {
