@@ -40,7 +40,7 @@ p {
     color: #000;
 }
 
-.display {
+.monitor-block {
     height: 25%;
 }
 
@@ -54,7 +54,7 @@ p {
     padding: 45px 25px;
 }
 
-.container-display {
+.display-result {
     height: 100%;
     margin: 0 60px;
     display: flex;
@@ -63,7 +63,7 @@ p {
     flex-direction: column;
 }
 
-.display__input {
+.display-result__input {
     width: 100%;
     background-color: #E6ECF2;
     display: flex;
@@ -75,13 +75,13 @@ p {
     border-bottom: 3px solid #D3E1F2;
     outline: none;
 }
-.container__notice {
+.display-result__notice {
     text-align: right;
     font-size: 40px;
     color: #d3e1f2;
 }
 
-.display__menu {
+.calc-ver-menu {
     margin: auto;
     list-style: none;
     position: absolute;
@@ -89,14 +89,14 @@ p {
     left: 0;
     z-index: 2;
 }
-.display__menu li {
+.calc-ver-menu__link {
     writing-mode: vertical-lr;
     transform: rotate(180deg);
     letter-spacing: 1px;
+    text-decoration: none;
 }
-.display__menu a {text-decoration: none;}
 
-.panel {
+.buttons-panel {
     height: 75%;
 }
 
