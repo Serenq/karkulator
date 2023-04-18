@@ -217,6 +217,9 @@ p {
     background-color: #D5D6DB;
     border: 4px solid #BCBDC2;
 }
+.skin-light .display-result__input::placeholder {
+    color: #A3A4A8;
+}
 
 .skin-light .display-result__notice,
 .skin-light a {
