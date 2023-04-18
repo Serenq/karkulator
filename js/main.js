@@ -23,6 +23,7 @@
     let calc = {
         value: '',
         executed: false,
+        about: 'Karkulator 1.2 by Serenq / 18 apr 2023',
         placehold: function(){
             let rand = Math.floor(Math.random() * placeholder.length);
             input.attr('placeholder', placeholder[rand]);
@@ -81,6 +82,9 @@
             if( reg_formattedVal.test(calc.value) ){
                 noticeVal.text(eval(calc.value));
             }
+        },
+        versionLog: function(){
+            console.log("%c" + this.about, "color: #ddd; font-style: italic; background-color: #444; padding: 0 20px");
         }
     };
 
@@ -101,6 +105,7 @@
             setTheme();
 
             this.timer = setInterval(setTheme, 10000);
+            calc.versionLog();
         },
         clickOnElem: function(){
             this.element = $(this).attr('data-skin');
