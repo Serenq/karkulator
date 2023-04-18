@@ -18,7 +18,6 @@
     // Убирает лишние символы. Защита от ввода хуйни всякими ебланами.
     const reg_allowedType = /\B[^\-\d\.\s]+|[^\d\+\-\*\/\.]|(?<=\d+[\+\-\*\/\.])[\+\*\/\.]+|(?<=\d+\-)\-+|\B[\+\-\*\/][\+\-\*\/]+|(?<=0+)0+\.|00+\.[0-9]+|(?<=[\+\-\*\/])0+[1-9]+|^00+[1-9\.\+\-\*\/]+|(?<=\.[0-9]+)\.|(?<=\.)\.+|(?<=\.)\-|\B\./g;
     // Проверка уже введённого для вывода подсказки БЕЗ ОШИБОК!
-    //const reg_formattedVal = /^\-?[0-9]+$|^(?:[0-9\.]+|\-[0-9])(?:(?:[\+\-\*\/])(?:[0-9\.]+))+$|^[0-9\.]+$/;
     const reg_formattedVal = /^\-?[0-9]+$|^(?:[0-9\.]+|\-[0-9])(?:(?:[\+\-\*\/])(?:0?\.?[1-9]0*|0))+$|^[0-9\.]+$/;
 
     let calc = {
@@ -87,17 +86,31 @@
 
     let colorSkins = {
         element: undefined,
+        timer: undefined,
         translate: function(input){
             return input == 'light' ? 'Светлая'
                 : input == 'dark'? 'Тёмная'
                 : input == 'nephrite' ? 'Нефритовая' : '...';
         },
-        clickOnElem: function(e){
+        timeDependence: function(){
+            let hours = new Date().getHours();
+
+            function setTheme(){
+                if((hours >= 20 && hours <= 23) || (hours >= 0 && hours <= 7)){$('#calc').attr('class', 'skin-' + 'dark');} // С 20:00 до 7:00 - ночная тема
+            }
+            setTheme();
+
+            this.timer = setInterval(setTheme, 10000);
+        },
+        clickOnElem: function(){
             this.element = $(this).attr('data-skin');
             $('#calc').attr('class', 'skin-' + this.element);
             noticeVal.text( 'Тема: ' + colorSkins.translate(this.element) );
+            clearInterval(colorSkins.timer);
         }
     }
+
+    colorSkins.timeDependence();
 
     btn.on('click', calc.clickToInput);
     input.on('keyup', calc.typeToInput);
