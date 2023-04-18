@@ -89,8 +89,9 @@ p {
 }
 
 .display-result__input {
-    width: 100%;
+    width: calc(100% - 10px);
     display: flex;
+    align-self: center;
     align-items: end;
     justify-content: end;
     background-color: #D5D6DB;
@@ -113,8 +114,8 @@ p {
     margin: auto;
     list-style: none;
     position: absolute;
-    bottom: 12px;
-    left: 0;
+    top: 10px;
+    left: 5px;
     z-index: 2;
 }
 .calc-ver-menu__link {
@@ -126,6 +127,7 @@ p {
 
 .buttons-panel {
     height: 75%;
+    margin: 0 60px;
 }
 
 .row {

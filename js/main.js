@@ -1,12 +1,12 @@
 /* 
-    КАРКУЛЯТОР 1.1 / 14 апреля 2023 / by Serenq
+    КАРКУЛЯТОР 1.2 / 18 апреля 2023 / by Serenq
     
     Основные возможности:
     - Проверка ввода.
-    - Форматирование матемитического алгоритма, можно не правильного.
+    - Форматирование матемитического алгоритма, можно вставлять чепуху.
     - Предварительный просмотр результата.
     - Возможность не прирывать вычисление нажимая на математические операторы.
-    - После нажатия кнопки (=), обновляется ввод.
+    - После нажатия кнопки (=), можно продолжать вычисления.
 */
 
 //CALC.EXE
@@ -28,7 +28,6 @@
             input.attr('placeholder', placeholder[rand]);
         },
         clickToInput: function(e){
-            calc.alredyDone(e);//Если посчитано, была нажата кнопка (=)
             calc.value += $(this).attr('data-btn') || '';
 
             // Очистить инпут по нажатию КЛЕР
@@ -82,16 +81,6 @@
             if( reg_formattedVal.test(calc.value) ){
                 noticeVal.text(eval(calc.value));
             }
-        },
-        alredyDone: function(e){
-            //Если посчитано, была нажата кнопка (=)
-            if(calc.executed){
-                calc.executed = false;
-                calc.clear();
-                input.val(calc.value);
-            }
-
-            if( !calc.executed && $(e.currentTarget).hasClass('btn-execute') ){calc.executed = true}
         }
     };
 
