@@ -16,9 +16,10 @@
     const noticeVal = $('.display-result__notice');
     const placeholder = ['Каркулятор','2 + 2 * 2 = 8','Красота','Готов!','Приятный результат'];
     // Убирает лишние символы. Защита от ввода хуйни всякими ебланами.
-    const reg_allowedType = /\B[^\-\d\.\s]+|[^\d\+\-\*\/\.]|(?<=\d+[\+\-\*\/\.])[\+\*\/\.]+|(?<=\d+\-)\-+|\B[\+\-\*\/][\+\-\*\/]+|\B0+[\.1-9]|(?<=\.\d+)\.|(?<=\.)\.+|(?<=\.)\-|\B\./g;
+    const reg_allowedType = /\B[^\-\d\.\s]+|[^\d\+\-\*\/\.]|(?<=\d+[\+\-\*\/\.])[\+\*\/\.]+|(?<=\d+\-)\-+|\B[\+\-\*\/][\+\-\*\/]+|(?<=0+)0+\.|00+\.[0-9]+|(?<=[\+\-\*\/])0+[1-9]+|^00+[1-9\.\+\-\*\/]+|(?<=\.[0-9]+)\.|(?<=\.)\.+|(?<=\.)\-|\B\./g;
     // Проверка уже введённого для вывода подсказки БЕЗ ОШИБОК!
-    const reg_formattedVal = /^\-?[0-9]+$|^(?:[0-9\.]+|\-[0-9])(?:(?:[\+\-\*\/])(?:[0-9\.]+))+$|^[0-9\.]+$/;
+    //const reg_formattedVal = /^\-?[0-9]+$|^(?:[0-9\.]+|\-[0-9])(?:(?:[\+\-\*\/])(?:[0-9\.]+))+$|^[0-9\.]+$/;
+    const reg_formattedVal = /^\-?[0-9]+$|^(?:[0-9\.]+|\-[0-9])(?:(?:[\+\-\*\/])(?:0?\.?[1-9]0*|0))+$|^[0-9\.]+$/;
 
     let calc = {
         value: '',
@@ -84,6 +85,21 @@
         }
     };
 
+    let colorSkins = {
+        element: undefined,
+        translate: function(input){
+            return input == 'light' ? 'Светлая'
+                : input == 'dark'? 'Тёмная'
+                : input == 'nephrite' ? 'Нефритовая' : '...';
+        },
+        clickOnElem: function(e){
+            this.element = $(this).attr('data-skin');
+            $('#calc').attr('class', 'skin-' + this.element);
+            noticeVal.text( 'Тема: ' + colorSkins.translate(this.element) );
+        }
+    }
+
     btn.on('click', calc.clickToInput);
     input.on('keyup', calc.typeToInput);
+    $('.skin-switch__btn').on('click', colorSkins.clickOnElem);
 }());//CALC.EXE
