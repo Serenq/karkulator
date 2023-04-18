@@ -38,6 +38,7 @@ p {
     height: 100%;
     background-color: #fff;
     color: #000;
+    font-family: math, coursive;
 }
 
 .monitor-block {
@@ -69,19 +70,23 @@ p {
     width: 50px;
     height: 100%;
     border: none;
-    border-bottom-width: 7px;
+    border-bottom-width: 10px;
     border-bottom-style: solid;
     display: inline-block;
 }
 
 .skin-switch__btn-light {
     background: linear-gradient(#E4E4EB, #BEBFC4);
-    border-bottom-color: #F0F0F0;
+    border-bottom-color: #E0E0E0;
     
 }
 .skin-switch__btn-dark {
     background: linear-gradient(#676870, #3B3B40);
     border-bottom-color: #1F1F1F;
+}
+.skin-switch__btn-nephrite {
+    background: linear-gradient(#39A85B, #00611D);
+    border-bottom-color: #003D12;
 }
 
 .display-result__input {
@@ -89,6 +94,7 @@ p {
     background-color: #E6ECF2;
     display: flex;
     font-size: 75px;
+    font-family: inherit;
     align-items: end;
     justify-content: end;
     text-align: right;
@@ -144,6 +150,21 @@ p {
     font-size: 60px;
     cursor: pointer;
     outline: 1px solid #eee;
+    position: relative;
+}
+
+.btn::after {
+    content: "";
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    display: block;
+    border: 2px solid #666;
+    border-radius: 6px;
+    margin: auto;
+    position: absolute;
+    top: 0;right: 0;
+    bottom: 0;left: 0;
+    z-index: 0;
 }
 
 .btn:hover {
