@@ -39,6 +39,12 @@ p {
     font-family: math, coursive;
 }
 
+.calc-wraper {
+    height: 100%;
+    margin: 0 60px;
+    position: relative;
+}
+
 .monitor-block {
     height: 25%;
 }
@@ -55,7 +61,6 @@ p {
 
 .display-result {
     height: 100%;
-    margin: 0 60px;
     display: flex;
     flex-direction: column;
 }
@@ -102,6 +107,7 @@ p {
     color: #666;
     font-family: inherit;
     text-align: right;
+    padding-left: 2%;
     padding-right: 2%;
 }
 .display-result__notice {
@@ -114,7 +120,7 @@ p {
 .calc-ver-menu {
     margin: auto;
     list-style: none;
-    position: absolute;
+    position: fixed;
     top: 10px;
     left: 5px;
     z-index: 2;
@@ -128,7 +134,6 @@ p {
 
 .buttons-panel {
     height: 75%;
-    margin: 0 60px;
 }
 
 .row {
@@ -274,13 +279,13 @@ p {
 }
 
 .skin-nephrite .btn:hover::after {
-    background-color: #CBF0CC;
-    border-color: #77B872;
+    background-color: #6DCC3D;
+    border-color: #00B01A;
 }
 
 .skin-nephrite .btn:active::after {
-    background-color: #394E35;
-    border-color: #496344;
+    background-color: #9DF571;
+    border-color: #83CC5E;
 }
 
 .skin-nephrite .display-result__input {
@@ -300,3 +305,58 @@ p {
     color: #FFEEAC;
 }
 /* skin-nephrite */
+
+/* TABLET 768px */
+@media (max-width: 769px){
+    .calc-wraper {
+        margin: 0 20px;
+    }
+
+    .display-result__input {
+        font-size: 52px;
+        padding-top: 2%;
+        padding-bottom: 2%;
+    }
+
+    .display-result__notice {
+        font-size: 30px;
+        margin-right: 4%;
+    }
+
+    .btn {font-size: 48px;}
+}
+/* TABLET 768px */
+
+/* MOB-L 425px */
+@media (max-width: 426px){
+    .skin-switch {margin-left: 12px;}
+    .display-result__input {font-size: 44px;}
+    .btn {font-size: 36px;}
+}
+/* MOB-L 425px */
+
+/* MOB 320px */
+@media (max-width: 321px){
+    .calc-wraper {margin: 0;}
+
+    .calc-ver-menu {
+        top: 5px;
+        left: auto;
+        right: 5px;
+    }
+    .calc-ver-menu__link {
+        font-size: 12px;
+        writing-mode: inherit;
+        transform: none;
+    }
+    .display-result__input {
+        font-size: 32px;
+        padding-top: 4%;
+        padding-bottom: 4%;
+    }
+    .display-result__notice {
+        font-size: 20px;
+        margin-right: 5%;
+    }
+}
+/* MOB 320px */
