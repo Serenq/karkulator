@@ -16,6 +16,7 @@ body {
 
 body,html {
     height: 100%;
+    min-width: 320px;
 }
 
 h1 {
@@ -47,6 +48,7 @@ p {
 
 .monitor-block {
     height: 25%;
+    min-height: 150px;
 }
 
 .container {
@@ -308,6 +310,11 @@ p {
 
 /* TABLET 768px */
 @media (max-width: 769px){
+    #calc {
+        display: flex;
+        flex-direction: column;
+    }
+
     .calc-wraper {
         margin: 0 20px;
     }
@@ -329,7 +336,16 @@ p {
 
 /* MOB-L 425px */
 @media (max-width: 426px){
-    .skin-switch {margin-left: 12px;}
+    .skin-switch {
+        display: flex;
+        margin-top: 26px;
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+    .skin-switch__btn {
+        width: auto;
+        flex: 1 0 auto;
+    }
     .display-result__input {font-size: 44px;}
     .btn {font-size: 36px;}
 }
