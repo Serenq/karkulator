@@ -12,50 +12,54 @@
 <body>
     <div class="skin-light" id="calc">
         <div class="monitor-block">
-            <nav class="calc-ver-menu">
-                <a class="calc-ver-menu__link" href="calc-ver-1-3.html">О версии 1.3</a>
-            </nav>
-
-            <div class="display-result">
-                <div class="skin-switch">
-                    <a class="skin-switch__btn skin-switch__btn-light" href="javascript:;" data-skin="light"></a>
-                    <a class="skin-switch__btn skin-switch__btn-dark" href="javascript:;" data-skin="dark"></a>
-                    <a class="skin-switch__btn skin-switch__btn-nephrite" href="javascript:;" data-skin="nephrite"></a>
+            <div class="calc-wraper">
+                <nav class="calc-ver-menu">
+                    <a class="calc-ver-menu__link" href="calc-ver-1-3.html">О версии 1.3</a>
+                </nav>
+                <div class="display-result">
+                    <div class="skin-switch">
+                        <a class="skin-switch__btn skin-switch__btn-light" href="javascript:;" data-skin="light"></a>
+                        <a class="skin-switch__btn skin-switch__btn-dark" href="javascript:;" data-skin="dark"></a>
+                        <a class="skin-switch__btn skin-switch__btn-nephrite" href="javascript:;" data-skin="nephrite"></a>
+                    </div>
+                
+                    <input class="display-result__input" type="text" placeholder="Каркулятор">
+                    <div class="display-result__notice">Подсказка</div>
                 </div>
-                <input class="display-result__input" type="text" placeholder="Каркулятор">
-                <div class="display-result__notice">Подсказка</div>
             </div>
         </div>
 
         <div class="buttons-panel">
-            <div class="row row-1">
-                <div class="btn btn-divd btn-math" data-btn="/"><span>/</span></div>
-                <div class="btn btn-mult btn-math" data-btn="*"><span>*</span></div>
-                <div class="btn btn-min btn-math" data-btn="-"><span>-</span></div>
-                <div class="btn btn-plus btn-math" data-btn="+"><span>+</span></div>
+            <div class="calc-wraper">
+                <div class="row row-1">
+                    <div class="btn btn-divd btn-math" data-btn="/"><span>/</span></div>
+                    <div class="btn btn-mult btn-math" data-btn="*"><span>*</span></div>
+                    <div class="btn btn-min btn-math" data-btn="-"><span>-</span></div>
+                    <div class="btn btn-plus btn-math" data-btn="+"><span>+</span></div>
+                </div>
+                <div class="row row-2">
+                    <div class="btn btn-svn" data-btn="7"><span>7</span></div>
+                    <div class="btn btn-egt" data-btn="8"><span>8</span></div>
+                    <div class="btn btn-nin" data-btn="9"><span>9</span></div>
+                    <div class="btn btn-clr"><span>Clr</span></div>
+                </div>
+                <div class="row row-3">
+                    <div class="btn btn-for" data-btn="4"><span>4</span></div>
+                    <div class="btn btn-fiv" data-btn="5"><span>5</span></div>
+                    <div class="btn btn-six" data-btn="6"><span>6</span></div>
+                </div>
+                <div class="row row-4">
+                    <div class="btn btn-one" data-btn="1"><span>1</span></div>
+                    <div class="btn btn-two" data-btn="2"><span>2</span></div>
+                    <div class="btn btn-thr" data-btn="3"><span>3</span></div>
+                </div>
+                <div class="row row-5">
+                    <div class="btn btn-zer" data-btn="0"><span>0</span></div>
+                    <div class="btn btn-com" data-btn="."><span>.</span></div>
+                </div>
+                <div class="btn btn-execute"><span>=</span></div>
+                        </div>
             </div>
-            <div class="row row-2">
-                <div class="btn btn-svn" data-btn="7"><span>7</span></div>
-                <div class="btn btn-egt" data-btn="8"><span>8</span></div>
-                <div class="btn btn-nin" data-btn="9"><span>9</span></div>
-                <div class="btn btn-clr"><span>Clr</span></div>
-            </div>
-            <div class="row row-3">
-                <div class="btn btn-for" data-btn="4"><span>4</span></div>
-                <div class="btn btn-fiv" data-btn="5"><span>5</span></div>
-                <div class="btn btn-six" data-btn="6"><span>6</span></div>
-            </div>
-            <div class="row row-4">
-                <div class="btn btn-one" data-btn="1"><span>1</span></div>
-                <div class="btn btn-two" data-btn="2"><span>2</span></div>
-                <div class="btn btn-thr" data-btn="3"><span>3</span></div>
-            </div>
-            <div class="row row-5">
-                <div class="btn btn-zer" data-btn="0"><span>0</span></div>
-                <div class="btn btn-com" data-btn="."><span>.</span></div>
-            </div>
-            <div class="btn btn-execute"><span>=</span></div>
-        </div>
     </div>
 
     <script src="js/jquery-3.5.1.min.js"></script>
