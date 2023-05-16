@@ -40,7 +40,7 @@ p {
 #calc {
     height: 100%;
     display: grid;
-    grid-template-rows: minmax(30px, .5fr) 1fr minmax(200px, 5fr);
+    grid-template-rows: minmax(30px, .5fr) min-content minmax(200px, 5fr);
     grid-template-columns: 1fr;
 }
 
