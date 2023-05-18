@@ -21,10 +21,45 @@ body,html {
 
 h1 {
     font-size: 32px;
+    margin-top: 30px;
     margin-bottom: 22px;
 }
 p {
     margin-bottom: 15px;
+}
+
+ul {
+    list-style:inside;
+}
+
+.code-fragment {
+    display: inline-block;
+    background-color: #DEE6AA;
+    padding: 3px 6px;
+    margin: 5px 0;
+}
+
+.backward-wrap {
+    opacity: 1;
+}
+.backward-wrap_margins {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.backward-wrap_txt-right {text-align: right;}
+.backward-btn {
+    color: #fafafa;
+    background-color: #9FB224;
+    display: inline-block;
+    padding: 8px 18px;
+    text-decoration: none;
+}
+
+.container {
+    max-width: 768px;
+    background-color: #FFF9E6;
+    margin: auto;
+    padding: 1px 26px;
 }
 
 .calc-verion-info {
